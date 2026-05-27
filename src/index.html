@@ -35,14 +35,14 @@
             </div>
             <picture class="px-4">
                 <source srcset="/images/hero-pictures.webp" type="image/webp">
-                <img src="/images/hero-pictures.png" alt="Hero Image">
+                <img src="/images/hero-pictures.png" alt="Hero Image" width="507" height="507" fetchpriority="high">
             </picture>
             <picture class="hero__elements">
-                <img src="/images/hero-pictures-elements.svg" alt="Hero Elements">
+                <img src="/images/hero-pictures-elements.svg" alt="Hero Elements" width="1022" height="709">
             </picture>
             <picture class="hero__bg">
                 <source srcset="/images/hero-bg.webp" type="image/webp">
-                <img src="/images/hero-bg.png" alt="Hero Image">
+                <img src="/images/hero-bg.png" alt="Hero Image" width="1638" height="777">
             </picture>
         </div>
     </section>
@@ -58,15 +58,23 @@
                 <div class="swiper-slide">
                     <article class="song-card">
                         <div class="relative">
-                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/cat_128kbps_720p_h264_10s">
                                 Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
                             </video>
-                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
-                                <h3 class="text-base">Άνεμος</h3>
-                                <span>Κλαυδία</span>
+                            <div class="song-card__video-texts">
+                                <div class="text-white">
+                                    <h3 class="text-base">Άνεμος</h3>
+                                    <span>Κλαυδία</span>
+                                </div>
+                                <a role="button" aria-label="Άνεμος" target="_blank" class="song-card__play-btn">
+                                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
+                                        <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
-                        <div class="song-details pointer-events-none bg-(--color-blue) text-white">
+                        <div class="song-details bg-(--color-blue) text-white">
                             <blockquote>“Άνεμος θε να γεννή, το γλυκό φιλί σου. Στον γαλάζιο ουρανό, να γυρνώ, να γυρνώ μαζί σου.”</blockquote>
                             <div>
                                 <h3 class="text-base">Άνεμος</h3>
@@ -78,15 +86,24 @@
                 <div class="swiper-slide">
                     <article class="song-card relative">
                         <div class="relative">
-                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/corgi_128kbps_720p_h264_10s">
                                 Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
                             </video>
-                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
-                                <h3 class="text-base">Γεια σου χαρά σου Βενετιά</h3>
-                                <span>Ν. Ξυλούρης</span>
+                            <div class="song-card__video-texts">
+                                <div class="text-white">
+                                    <h3 class="text-base">Γεια σου χαρά σου Βενετιά</h3>
+                                    <span>Ν. Ξυλούρης</span>
+                                </div>
+                                <a role="button" aria-label="Γεια σου χαρά σου Βενετιά" target="_blank" class="song-card__play-btn">
+                                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
+                                        <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
                             </div>
+
                         </div>
-                        <div class="song-details pointer-events-none bg-(--color-light-green) text-white">
+                        <div class="song-details bg-(--color-light-green) text-white">
                             <blockquote>“Φύσα αεράκι, φύσα με. Μη χαμηλώνεις ίσαμε. Να δω στην Κρήτη μια κορφή. Που 'χω μανούλα κι αδερφή.”</blockquote>
                             <div>
                                 <h3 class="text-base">Γεια σου χαρά σου Βενετιά</h3>
@@ -98,15 +115,23 @@
                 <div class="swiper-slide">
                     <article class="song-card relative">
                         <div class="relative">
-                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/test_128kbps_720p_h264_10s">
                                 Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
                             </video>
-                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
-                                <h3 class="text-base">Αύρα Εσπερινή</h3>
-                                <span>Δ. Παναγόπουλος</span>
+                            <div class="song-card__video-texts">
+                                <div class="text-white">
+                                    <h3 class="text-base">Αύρα Εσπερινή</h3>
+                                    <span>Δ. Παναγόπουλος</span>
+                                </div>
+                                <a role="button" aria-label="Αύρα Εσπερινή"  target="_blank" class="song-card__play-btn">
+                                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
+                                        <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
-                        <div class="song-details pointer-events-none bg-(--color-light-blue) text-white">
+                        <div class="song-details bg-(--color-light-blue) text-white">
                             <blockquote>“Γιατί είμ’ αέρας που περνά, μέσα στης πόλης τα στενά και κάνει τα κλειστά παράθυρα να τρίζουν.”</blockquote>
                             <div>
                                 <h3 class="text-base">Αύρα Εσπερινή</h3>
@@ -118,15 +143,23 @@
                 <div class="swiper-slide">
                     <article class="song-card relative">
                         <div class="relative">
-                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/cat_128kbps_720p_h264_10s">
                                 Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
                             </video>
-                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
-                                <h3 class="text-base">(Αέρας) Πεχλιβάνης</h3>
-                                <span>Θ. Παπακωνσταντίνου</span>
+                            <div class="song-card__video-texts">
+                                <div class="text-white">
+                                    <h3 class="text-base">(Αέρας) Πεχλιβάνης</h3>
+                                    <span>Θ. Παπακωνσταντίνου</span>
+                                </div>
+                                <a role="button" aria-label="(Αέρας) Πεχλιβάνης" target="_blank" class="song-card__play-btn">
+                                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
+                                        <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
-                        <div class="song-details pointer-events-none bg-(--color-green) text-white">
+                        <div class="song-details bg-(--color-green) text-white">
                             <blockquote>“Αέρα να ‘σαι τιμωρός, να ‘σαι και παιχνιδιάρης κι αν βαρεθεί η ψυχούλα μου, να ‘ρθεις να μου την πάρεις.”</blockquote>
                             <div>
                                 <h3 class="text-base">(Αέρας) Πεχλιβάνης</h3>

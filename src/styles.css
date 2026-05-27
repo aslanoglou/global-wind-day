@@ -71,7 +71,7 @@
 
             & > div,
             & > picture:not(.hero__bg, .hero__elements) {
-                @apply relative z-10 opacity-0 will-change-[transform,opacity,filter];
+                @apply relative z-10 opacity-10 will-change-[transform,opacity,filter];
             }
 
             .hero__bg {
@@ -93,7 +93,7 @@
     }
 
     main{
-        section{
+        section:not(:last-child) {
             @apply mb-(--section-margin)
         }
     }
@@ -105,8 +105,7 @@
             @apply overflow-visible mt-12;
 
             .swiper-wrapper {
-                @apply items-stretch;
-                transition-timing-function: linear !important;
+                @apply items-stretch ease-linear!;
             }
 
             .swiper-slide {
@@ -115,14 +114,22 @@
         }
 
         .song-card {
-            @apply bg-white w-[90dvw] max-w-[920px] flex flex-col tablet:flex-row gap-2.25 will-change-[transform,opacity,filter];
+            @apply bg-white w-[90dvw] max-w-230 flex flex-row gap-2.25 will-change-[transform,opacity,filter];
+
+            .song-card__play-btn{
+                @apply text-(--color-gray) hover:text-(--color-red) cursor-pointer;
+            }
 
             video {
-                @apply block rounded-2xl overflow-hidden w-full tablet:w-auto aspect-9/16 tablet:basis-[300px] h-[500px] object-cover will-change-transform shrink-0;
+                @apply block rounded-2xl overflow-hidden w-full tablet:w-auto aspect-9/16 tablet:basis-75 h-125 object-cover will-change-transform shrink-0;
             }
 
             .song-details {
-                @apply p-6 tablet:p-8 rounded-2xl overflow-hidden flex flex-col justify-between flex-1 will-change-[transform,opacity,filter];
+                @apply p-6 rounded-2xl overflow-hidden flex flex-col justify-between flex-1 will-change-[transform,opacity,filter];
+            }
+            .song-card__video-texts{
+                @apply absolute bottom-0 left-0 w-full z-10 px-4 py-6 flex gap-2 items-end justify-between
+                bg-linear-to-t from-black/50  to-black/0;
             }
         }
     }

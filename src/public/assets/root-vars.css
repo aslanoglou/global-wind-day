@@ -14,6 +14,7 @@
     --color-red: #FF0000;
     --color-black: #101222;
     --color-blue: #005097;
+    --color-gray: #6C6C6C;
     --color-light-blue: #7ABDE8;
     --color-green: #159B4C;
     --color-light-green: #5BB881;
@@ -23,6 +24,9 @@
 
     --href-color: var(--color-blue);
     --href-hover-color: var(--color-green);
+
+    --btn-color: var(--color-gray);
+    --btn-hover-color: var(--color-green);
 }
 @media (max-width: 768px) {
     :root {
