@@ -22,15 +22,11 @@ export default defineConfig({
         outDir: '../dist',
         emptyOutDir: true,
         rollupOptions: {
-            input: {
-                home: 'index.html',
-                groups: 'groups.html',
-                team: 'team.html',
-            },
+            // Removed input: 'index.html', as Vite should auto-detect index.html in the root
             output: {
-                entryFileNames: 'assets/[name].js',
-                chunkFileNames: 'assets/[name].js',
-                assetFileNames: 'assets/[name][extname]',
+                entryFileNames: 'assets/main.js',
+                chunkFileNames: 'assets/main.js',
+                assetFileNames: 'assets/main[extname]',
             },
         },
     },

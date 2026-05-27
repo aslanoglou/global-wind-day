@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Tailwind Starter" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link as="style" href="./assets/fonts.css" rel="preload"/>
+    <link as="style" href="./assets/root-vars.css" rel="preload"/>
+    <link as="style" href="./styles.css" rel="preload"/>
+    <link href="./assets/fonts.css" rel="stylesheet">
+    <link href="./assets/root-vars.css" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <title>World Cup 2026</title>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <a href="https://www.gazzetta.gr/" target="_blank">
+            <picture class="header-logo">
+                <source srcset="/images/GWD-logo.webp" type="image/webp">
+                <img class="w-auto" src="/images/GWD-logo.png" width="179" height="235" alt="World Cup 2026">
+            </picture>
+        </a>
+    </div>
+</header>
+<main>
+    <section class="hero">
+        <div class="hero__wrapper">
+            <div class="px-4 text-white max-w-[539px]">
+                <h1 class="h3">Καλώς ήρθατε στο Μουσικό Challenge!</h1>
+                <p class="h4 font-normal">Απόψε, εσείς επιλέγετε το soundtrack της βραδιάς.</p>
+            </div>
+            <picture class="px-4">
+                <source srcset="/images/hero-pictures.webp" type="image/webp">
+                <img src="/images/hero-pictures.png" alt="Hero Image">
+            </picture>
+            <picture class="hero__elements">
+                <img src="/images/hero-pictures-elements.svg" alt="Hero Elements">
+            </picture>
+            <picture class="hero__bg">
+                <source srcset="/images/hero-bg.webp" type="image/webp">
+                <img src="/images/hero-bg.png" alt="Hero Image">
+            </picture>
+        </div>
+    </section>
+
+    <section class="songs">
+        <div class="px-4">
+            <div class="songs__heading max-w-tablet mx-auto">
+                <h2 class="h3 text-center text-(--primary-color)">Ποιο από τα παρακάτω «αέρινα» τραγούδια σας εκφράζει περισσότερο;</h2>
+            </div>
+        </div>
+        <div class="swiper songs-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <article class="song-card">
+                        <div class="relative">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                                Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
+                            </video>
+                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
+                                <h3 class="text-base">Άνεμος</h3>
+                                <span>Κλαυδία</span>
+                            </div>
+                        </div>
+                        <div class="song-details pointer-events-none bg-(--color-blue) text-white">
+                            <blockquote>“Άνεμος θε να γεννή, το γλυκό φιλί σου. Στον γαλάζιο ουρανό, να γυρνώ, να γυρνώ μαζί σου.”</blockquote>
+                            <div>
+                                <h3 class="text-base">Άνεμος</h3>
+                                <span>Κλαυδία</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="song-card relative">
+                        <div class="relative">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                                Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
+                            </video>
+                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
+                                <h3 class="text-base">Γεια σου χαρά σου Βενετιά</h3>
+                                <span>Ν. Ξυλούρης</span>
+                            </div>
+                        </div>
+                        <div class="song-details pointer-events-none bg-(--color-light-green) text-white">
+                            <blockquote>“Φύσα αεράκι, φύσα με. Μη χαμηλώνεις ίσαμε. Να δω στην Κρήτη μια κορφή. Που 'χω μανούλα κι αδερφή.”</blockquote>
+                            <div>
+                                <h3 class="text-base">Γεια σου χαρά σου Βενετιά</h3>
+                                <span>Ν. Ξυλούρης</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="song-card relative">
+                        <div class="relative">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                                Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
+                            </video>
+                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
+                                <h3 class="text-base">Αύρα Εσπερινή</h3>
+                                <span>Δ. Παναγόπουλος</span>
+                            </div>
+                        </div>
+                        <div class="song-details pointer-events-none bg-(--color-light-blue) text-white">
+                            <blockquote>“Γιατί είμ’ αέρας που περνά, μέσα στης πόλης τα στενά και κάνει τα κλειστά παράθυρα να τρίζουν.”</blockquote>
+                            <div>
+                                <h3 class="text-base">Αύρα Εσπερινή</h3>
+                                <span>Δ. Παναγόπουλος</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-slide">
+                    <article class="song-card relative">
+                        <div class="relative">
+                            <video class="aspect-9/16" poster="/images/klaudia.webp" autoplay muted loop playsinline width="100%" src="https://lorem.video/720p_h264_10s">
+                                Το πρόγραμμα περιήγησής σας δεν υποστηρίζει το video tag.
+                            </video>
+                            <div class="absolute bottom-0 left-0 z-10 p-4 tablet:p-6">
+                                <h3 class="text-base">(Αέρας) Πεχλιβάνης</h3>
+                                <span>Θ. Παπακωνσταντίνου</span>
+                            </div>
+                        </div>
+                        <div class="song-details pointer-events-none bg-(--color-green) text-white">
+                            <blockquote>“Αέρα να ‘σαι τιμωρός, να ‘σαι και παιχνιδιάρης κι αν βαρεθεί η ψυχούλα μου, να ‘ρθεις να μου την πάρεις.”</blockquote>
+                            <div>
+                                <h3 class="text-base">(Αέρας) Πεχλιβάνης</h3>
+                                <span>Θ. Παπακωνσταντίνου</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="songs-pagination swiper-pagination"></div>
+        </div>
+    </section>
+</main>
+</body>
+<script src="./main.js" type="module"></script>
+</html>
