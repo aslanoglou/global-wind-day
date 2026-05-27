@@ -1,0 +1,25 @@
+{
+  "name": "gazzetta-tailwind-guide",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node src/convert-to-webp.js && vite --host",
+    "build": "node src/convert-to-webp.js && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{html,js,jsx,ts,tsx,css}\"",
+    "check:updates": "npm outdated",
+    "audit": "npm audit"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "motion": "^12.38.0",
+    "swiper": "^12.1.4",
+    "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.0",
+    "sharp": "^0.34.2",
+    "vite": "^8.0.10"
+  }
+}
