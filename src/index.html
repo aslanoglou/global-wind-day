@@ -66,7 +66,7 @@
                                     <h3 class="text-base">Άνεμος</h3>
                                     <span>Κλαυδία</span>
                                 </div>
-                                <a role="button" aria-label="Άνεμος" target="_blank" class="song-card__play-btn">
+                                <a role="button" aria-label="Άνεμος" target="_blank" class="song-card__play-btn" data-youtube="https://youtube.com/shorts/hT3r0PWAh-8?si=xPLht-Pbs_XWFK6N">
                                     <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
                                         <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
@@ -94,7 +94,7 @@
                                     <h3 class="text-base">Γεια σου χαρά σου Βενετιά</h3>
                                     <span>Ν. Ξυλούρης</span>
                                 </div>
-                                <a role="button" aria-label="Γεια σου χαρά σου Βενετιά" target="_blank" class="song-card__play-btn">
+                                <a role="button" aria-label="Γεια σου χαρά σου Βενετιά" target="_blank" class="song-card__play-btn" data-youtube="https://youtube.com/shorts/BTezjTDw5I0?si=4MuS4dNaqBluYZ0h">
                                     <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
                                         <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
@@ -123,7 +123,7 @@
                                     <h3 class="text-base">Αύρα Εσπερινή</h3>
                                     <span>Δ. Παναγόπουλος</span>
                                 </div>
-                                <a role="button" aria-label="Αύρα Εσπερινή"  target="_blank" class="song-card__play-btn">
+                                <a role="button" aria-label="Αύρα Εσπερινή"  target="_blank" class="song-card__play-btn" data-youtube="https://youtu.be/prXZENGUzZY?si=72maizERwgUZuk8u">
                                     <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
                                         <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
@@ -151,7 +151,7 @@
                                     <h3 class="text-base">(Αέρας) Πεχλιβάνης</h3>
                                     <span>Θ. Παπακωνσταντίνου</span>
                                 </div>
-                                <a role="button" aria-label="(Αέρας) Πεχλιβάνης" target="_blank" class="song-card__play-btn">
+                                <a role="button" aria-label="(Αέρας) Πεχλιβάνης" target="_blank" class="song-card__play-btn" data-youtube="https://youtube.com/shorts/AKkQWZkoQRE?si=Rb9ie9wyhUW3Mzuz">
                                     <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="14.7096" cy="14.7097" r="9.36068" fill="#FFFFFF"/>
                                         <path d="M14.3306 0C6.42945 0 0 6.42945 0 14.3306C0 22.2333 6.42945 28.6613 14.3306 28.6613C22.2318 28.6613 28.6613 22.2318 28.6613 14.3306C28.6613 6.42792 22.2333 0 14.3306 0ZM9.98155 20.4124V8.25039L20.5137 14.3306L9.98155 20.4109V20.4124Z" fill="currentColor"/>
@@ -172,7 +172,98 @@
             <div class="songs-pagination swiper-pagination"></div>
         </div>
     </section>
+
+    <section class="form">
+        <div class="form__wrapper">
+            <div>
+                <h2 class="h3">Επιλέξτε τραγούδι και κερδίστε.</h2>
+                <p class="desktop:text-2xl">Συμπληρώστε το email σας και μπείτε αυτόματα στην κλήρωση για έναν αναμνηστικό φωτογραφικό καμβά με θέμα «το τοπίο της ανεμογεννήτριας».</p>
+                <form id="voteForm" novalidate>
+                    <div id="formMessages"></div>
+                    <div class="form-inputs">
+                        <div class="form-inputs__item">
+                            <input type="radio" id="radio1" name="radioGroup" value="option1" required>
+                            <label for="radio1"><strong>Άνεμος</strong><br/>
+                                Κλαυδία</label>
+                        </div>
+                        <div class="form-inputs__item">
+                            <input type="radio" id="radio2" name="radioGroup" value="option2" required>
+                            <label for="radio2"><strong>Γεια σου χαρά σου Βενετιά</strong><br/>
+                                Ν. Ξυλούρης</label>
+                        </div>
+                        <div class="form-inputs__item">
+                            <input type="radio" id="radio3" name="radioGroup" value="option3" required>
+                            <label for="radio3"><strong>Αύρα Εσπερινή</strong><br/>
+                                Δ. Παναγόπουλος</label>
+                        </div>
+                        <div class="form-inputs__item">
+                            <input type="radio" id="radio4" name="radioGroup" value="option4" required>
+                            <label for="radio4"><strong>(Αέρας) Πεχλιβάνης</strong><br/>
+                                Θ. Παπακωνσταντίνου</label>
+                        </div>
+                        <div class="flex flex-col col-span-2">
+                            <label for="email"><strong>Email*</strong></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="col-span-2">
+                            <button type="submit">Αποστολή</button>
+                        </div>
+                        <div class="col-span-2">
+                            <i>* Το email σας θα χρησιμοποιηθεί αποκλειστικά για την αποστολή του κωδικού συμμετοχής σας στην κλήρωση.</i>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form__image-area">
+                <picture>
+                    <source srcset="/images/form-image.webp" type="image/webp">
+                    <img src="/images/form-image.png" width="650" height="650" alt="Επιλέξτε τραγούδι και κερδίστε.">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner-text ">
+        <div class="banner-text__wrapper">
+            <div class="px-4 text-white max-w-desktop">
+                <p class="h6 font-normal">Ο τυχερός νικητής θα ανακοινωθεί κατά τη διάρκεια της εκδήλωσης.</p>
+                <h1 class="h3">Καλή επιτυχία!</h1>
+            </div>
+            <picture class="banner-text__bg">
+                <source srcset="/images/text-banner-bg.webp" type="image/webp">
+                <img src="/images/text-banner-bg.png" alt="Hero Image" width="1450" height="813">
+            </picture>
+        </div>
+    </section>
 </main>
+<footer>
+    <a href="#" aria-label="ΕΛΕΤΑΕΝ" target="_blank">
+        <picture>
+            <source srcset="/images/eletaen-logo.webp" type="image/webp">
+            <img src="/images/eletaen-logo.png" width="308" height="100" alt="ΕΛΕΤΑΕΝ">
+        </picture>
+    </a>
+</footer>
+<div class="youtube-modal" id="youtubeModal" aria-hidden="true">
+    <div class="youtube-modal__overlay" data-youtube-close></div>
+
+    <div class="youtube-modal__content" role="dialog" aria-modal="true" aria-label="YouTube video">
+        <button class="youtube-modal__close" type="button" aria-label="Κλείσιμο" data-youtube-close>
+            ×
+        </button>
+
+        <div class="youtube-modal__video">
+            <iframe
+                    id="youtubeModalIframe"
+                    src=""
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
 </body>
 <script src="./main.js" type="module"></script>
 </html>

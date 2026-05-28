@@ -4,59 +4,82 @@
 
 @theme {
     --breakpoint-*: initial;
-    --breakpoint-mobile: 32.5rem  /* 520/16 */;
-    --breakpoint-tablet: 48rem  /* 768/16 */;
-    --breakpoint-desktop: 64rem  /* 1024/16 */;
-    --breakpoint-large: 80rem  /* 1280/16 */;
-    --breakpoint-xlarge: 90rem  /* 1440/16 */;
+    --breakpoint-mobile: 32.5rem  /* 520/16 */
+;
+    --breakpoint-tablet: 48rem  /* 768/16 */
+;
+    --breakpoint-desktop: 64rem  /* 1024/16 */
+;
+    --breakpoint-large: 80rem  /* 1280/16 */
+;
+    --breakpoint-xlarge: 90rem  /* 1440/16 */
+;
 
     --container-*: initial;
     --container-x-padding: 1rem;
-    --container-mobile: 32.5rem /* 520/16 */;
-    --container-tablet: 48rem /* 768/16 */;
-    --container-desktop: 64rem /* 1024/16 */;
-    --container-large: 80rem /* 1280/16 */;
-    --container-xlarge: 90rem /* 1440/16 */;
+    --container-mobile: 32.5rem /* 520/16 */
+;
+    --container-tablet: 48rem /* 768/16 */
+;
+    --container-desktop: 64rem /* 1024/16 */
+;
+    --container-large: 80rem /* 1280/16 */
+;
+    --container-xlarge: 90rem /* 1440/16 */
+;
 }
 
 @layer base {
     html {
         @apply scroll-smooth;
     }
+
     .h1, .h2, .h3, .h4, .h5, .h6 {
         @apply font-bold mb-4;
     }
+
     .h1 {
         @apply text-[clamp(2.5rem,4vw+1rem,4rem)] leading-[1.1];
     }
+
     .h2 {
         @apply text-[clamp(2rem,3vw+1rem,3rem)] leading-[1.15];
     }
+
     .h3 {
         @apply text-[clamp(1.75rem,2.5vw+1rem,2.5rem)] leading-[1.2];
     }
+
     .h4 {
         @apply text-[clamp(1.5rem,2vw+.75rem,2rem)] leading-tight;
     }
+
     .h5 {
         @apply text-[clamp(1.25rem,1.5vw+.5rem,1.5rem)] leading-[1.3];
     }
+
     .h6 {
         @apply text-[clamp(1.125rem,1vw+.5rem,1.25rem)] leading-[1.35];
     }
-    blockquote{
+
+    blockquote {
         @apply text-[clamp(1.25rem,1.5vw+.5rem,1.5rem)] leading-[1.3] italic;
     }
-    body{
+
+    body {
         @apply min-h-dvh overflow-x-hidden bg-white;
     }
-    header{
-        @apply  py-(--header-vertical-padding) h-(--header-height) w-full;
-        .header-container{
+
+    header {
+        @apply py-(--header-vertical-padding) h-(--header-height) w-full;
+
+        .header-container {
             @apply px-4 w-full max-w-xlarge mx-auto flex items-center justify-center;
-            .header-logo{
+
+            .header-logo {
                 @apply block opacity-0 will-change-[transform,opacity,filter];
-                img{
+
+                img {
                     @apply h-(--header-logo-height)
                 }
             }
@@ -75,7 +98,7 @@
             }
 
             .hero__bg {
-                @apply absolute inset-y-[-15%] inset-x-0 w-full h-[130%] -z-10 overflow-hidden opacity-0 will-change-[opacity,filter];
+                @apply absolute inset-y-[-15%] inset-x-0 w-full h-[130%] -z-10 overflow-hidden opacity-0 will-change-[transform,opacity,filter];
 
                 img {
                     @apply object-cover object-center h-full w-full will-change-transform;
@@ -92,7 +115,7 @@
         }
     }
 
-    main{
+    main {
         section:not(:last-child) {
             @apply mb-(--section-margin)
         }
@@ -101,8 +124,12 @@
     .songs {
         @apply overflow-hidden;
 
+        .songs__heading {
+            @apply opacity-0 will-change-[transform,opacity,filter];
+        }
+
         .songs-swiper {
-            @apply overflow-visible mt-12;
+            @apply overflow-visible mt-12 opacity-0 will-change-[transform,opacity,filter];
 
             .swiper-wrapper {
                 @apply items-stretch ease-linear!;
@@ -116,7 +143,7 @@
         .song-card {
             @apply bg-white w-[90dvw] max-w-230 flex flex-row gap-2.25 will-change-[transform,opacity,filter];
 
-            .song-card__play-btn{
+            .song-card__play-btn {
                 @apply text-(--color-gray) hover:text-(--color-red) cursor-pointer;
             }
 
@@ -127,10 +154,144 @@
             .song-details {
                 @apply p-6 rounded-2xl overflow-hidden flex flex-col justify-between flex-1 will-change-[transform,opacity,filter];
             }
-            .song-card__video-texts{
-                @apply absolute bottom-0 left-0 w-full z-10 px-4 py-6 flex gap-2 items-end justify-between
-                bg-linear-to-t from-black/50  to-black/0;
+
+            .song-card__video-texts {
+                @apply absolute bottom-0 left-0 w-full z-10 px-4 py-6 flex gap-2 items-end justify-between bg-linear-to-t from-black/50 to-black/0;
             }
         }
     }
+
+    .form {
+        @apply px-4;
+
+        .form__wrapper {
+            @apply mx-auto flex flex-col desktop:flex-row relative max-w-xlarge gap-4 desktop:gap-8;
+
+            > div:first-child {
+                @apply opacity-0 will-change-[transform,opacity,filter];
+            }
+
+            .form__image-area {
+                @apply relative desktop:basis-1/2 large:basis-[650px] desktop:shrink-0 opacity-0 will-change-[transform,opacity,filter];
+
+                picture {
+                    @apply block max-desktop:flex max-desktop:place-content-center;
+
+                    img {
+                        @apply rounded-2xl overflow-hidden aspect-square will-change-transform;
+                    }
+                }
+            }
+        }
+    }
+
+    input[type="radio"] {
+        @apply w-4 h-4 mt-2;
+    }
+
+    input[type="email"] {
+        @apply rounded-[9px] border-solid border-2 border-(--color-gray-light) leading-10 p-4
+    }
+
+    button {
+        @apply bg-(--color-blue) hover:not-focus:bg-(--color-blue)/75 cursor-pointer rounded-[9px] leading-10 p-4 w-full text-white font-bold;
+    }
+
+    i {
+        @apply text-[12px] text-(--color-gray) leading-none;
+    }
+
+    .form-inputs {
+        @apply grid desktop:grid-cols-2 gap-4 desktop:gap-8 mt-4 desktop:mt-8 max-w-[470px] max-desktop:mx-auto;
+
+        .form-inputs__item {
+            @apply flex items-start gap-2;
+        }
+    }
+
+    #formMessages {
+        @apply my-8;
+    }
+
+    .form-error {
+        @apply text-(--color-red) text-sm mt-1.5 desktop:text-[18px];
+    }
+
+    .input-error {
+        @apply border border-(--color-red);
+    }
+
+    .form-success {
+        @apply text-(--color-blue) desktop:text-2xl;
+    }
+
+    .banner-text {
+        @apply px-4;
+
+        .banner-text__wrapper {
+            @apply mx-auto grid place-items-center relative py-16 rounded-2xl overflow-hidden max-w-xlarge isolate h-140 desktop:h-155;
+
+            > div {
+                @apply opacity-0 will-change-[transform,opacity,filter] text-center;
+            }
+
+            .banner-text__bg {
+                @apply absolute inset-y-[-15%] inset-x-0 w-full h-[130%] -z-10 overflow-hidden opacity-0 will-change-[transform,opacity,filter];
+
+                img {
+                    @apply object-cover object-center h-full w-full will-change-transform;
+                }
+            }
+        }
+    }
+
+
+    .youtube-modal {
+        @apply fixed inset-0 z-50 hidden items-center justify-center p-4;
+
+        &.is-open {
+            @apply flex;
+        }
+
+        .youtube-modal__overlay {
+            @apply absolute inset-0 bg-black/70 backdrop-blur-sm;
+        }
+
+        .youtube-modal__content {
+            @apply relative z-10 w-full;
+
+            &.landscape {
+                @apply max-w-170;
+            }
+
+            &.portrait {
+                @apply max-w-105;
+            }
+        }
+
+        .youtube-modal__video {
+            @apply relative w-full overflow-hidden rounded-2xl bg-black shadow-2xl;
+
+            &.landscape {
+                @apply aspect-video;
+            }
+
+            &.portrait {
+                @apply aspect-9/16;
+            }
+        }
+
+        .youtube-modal__video iframe {
+            @apply absolute inset-0 h-full w-full;
+        }
+
+        .youtube-modal__close {
+            @apply absolute -top-12 right-0 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-3xl leading-none text-black;
+        }
+    }
+
+    footer {
+        @apply grid place-items-center my-9 px-4
+    }
+
 }

@@ -60,9 +60,9 @@ ddev npm run dev
 
 Open:
 
-👉 **https://gazzetta-tailwind-guide.ddev.site:5174** if you have run `ddev npm run dev`
+👉 **https://global-wind-day.ddev.site:5174/** if you have run `ddev npm run dev`
 
-👉 **https://gazzetta-tailwind-guide.ddev.site** if you have run `ddev npm run build`
+👉 **https://global-wind-day.ddev.site** if you have run `ddev npm run build`
 
 ✔ Auto refresh / HMR works instantly on save  
 ✔ No ports needed in the URL  
