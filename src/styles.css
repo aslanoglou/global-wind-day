@@ -141,23 +141,25 @@
         }
 
         .song-card {
-            @apply bg-white w-[90dvw] max-w-230 flex flex-row gap-2.25 will-change-[transform,opacity,filter];
+            @apply bg-white flex flex-row shrink grow-0 basis-[90dvw] gap-2.25 will-change-[transform,opacity,filter];
 
             .song-card__play-btn {
                 @apply text-(--color-gray) hover:text-(--color-red) cursor-pointer;
             }
-
-            video {
-                @apply block rounded-2xl overflow-hidden w-full tablet:w-auto aspect-9/16 tablet:basis-75 h-125 object-cover will-change-transform shrink-0;
-            }
-
-            .song-details {
-                @apply p-6 rounded-2xl overflow-hidden flex flex-col justify-between flex-1 will-change-[transform,opacity,filter];
+            &>.relative{
+                video {
+                    @apply block rounded-2xl overflow-hidden aspect-9/16 h-125 object-cover will-change-transform;
+                }
             }
 
             .song-card__video-texts {
-                @apply absolute bottom-0 left-0 w-full z-10 px-4 py-6 flex gap-2 items-end justify-between bg-linear-to-t from-black/50 to-black/0;
+                @apply absolute bottom-0 left-0 w-full z-10 px-4 py-6 flex gap-2 items-end justify-between bg-linear-to-t from-black/50 to-black/0 rounded-b-2xl overflow-hidden;
             }
+
+            .song-details {
+                @apply p-6 rounded-2xl overflow-hidden flex flex-col basis-[calc(100dvw-280px-9px)] shrink grow-0 min-w-68 max-w-140 justify-between will-change-[transform,opacity,filter];
+            }
+
         }
     }
 
@@ -172,7 +174,7 @@
             }
 
             .form__image-area {
-                @apply relative desktop:basis-1/2 large:basis-[650px] desktop:shrink-0 opacity-0 will-change-[transform,opacity,filter];
+                @apply relative max-desktop:hidden desktop:basis-1/2 large:basis-[650px] desktop:shrink-0 opacity-0 will-change-[transform,opacity,filter];
 
                 picture {
                     @apply block max-desktop:flex max-desktop:place-content-center;
