@@ -8,6 +8,10 @@
     --header-vertical-padding: 16px;
     --header-height: calc(var(--header-logo-height) + var(--header-vertical-padding) * 2);
 
+    --footer-logo-height: 100px;
+    --footer-vertical-padding: 16px;
+    --footer-height: calc(var(--footer-logo-height) + var(--footer-vertical-padding) * 2);
+
     --section-margin: clamp(85px, 8vw, 125px);
 
     --color-yellow: #FFCB00;
@@ -19,6 +23,7 @@
     --color-light-blue: #7ABDE8;
     --color-green: #159B4C;
     --color-light-green: #5BB881;
+    --color-lighter-green: #81E0A8;
 
     --primary-color: var(--color-blue);
     --secondary-color: var(--color-green);

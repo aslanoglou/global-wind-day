@@ -495,8 +495,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     animate(
                         bannerBgImage,
                         {
-                            y: ["-12%", "12%"],
-                            scale: [1.12, 1.12],
+                            y: ["-25%", "25%"],
+                            scale: [1, 1],
                         },
                         {
                             easing: "linear",
@@ -511,6 +511,166 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             if (bannerBg) bannerBg.style.opacity = "1";
             if (bannerContent) bannerContent.style.opacity = "1";
+        }
+    }
+
+    /**
+     * Screen 1 animation
+     */
+    const screen1 = document.querySelector(".screen--1");
+
+    if (screen1) {
+        const screen1Wrapper = screen1.querySelector(".screen__wrapper");
+        const screen1Content = screen1.querySelector(".screen__wrapper > div");
+        const screen1ElementsLeft = screen1.querySelector(".screen__elements-left");
+        const screen1ElementsRight = screen1.querySelector(".screen__elements-right");
+        const screen1Bg = screen1.querySelector(".screen__bg");
+        const screen1BgImage = screen1.querySelector(".screen__bg img");
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (!prefersReducedMotion) {
+            let screen1Animated = false;
+
+            inView(
+                screen1,
+                () => {
+                    if (screen1Animated) return;
+                    screen1Animated = true;
+
+                    if (screen1Bg) {
+                        animate(
+                            screen1Bg,
+                            {
+                                opacity: [0, 1],
+                                scale: [1.04, 1],
+                                filter: ["blur(18px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.9,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen1ElementsLeft) {
+                        animate(
+                            screen1ElementsLeft,
+                            {
+                                opacity: [0, 1],
+                                x: [-90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.18,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen1ElementsRight) {
+                        animate(
+                            screen1ElementsRight,
+                            {
+                                opacity: [0, 1],
+                                x: [90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.26,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen1Content) {
+                        animate(
+                            screen1Content,
+                            {
+                                opacity: [0, 1],
+                                y: [28, 0],
+                                scale: [0.96, 1],
+                                filter: ["blur(12px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.75,
+                                delay: 0.46,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+                },
+                {
+                    margin: "0px 0px -20% 0px",
+                }
+            );
+
+            if (screen1Wrapper && screen1BgImage) {
+                scroll(
+                    animate(
+                        screen1BgImage,
+                        {
+                            y: ["-10%", "0%"],
+                            scale: [1, 1],
+                        },
+                        {
+                            easing: "linear",
+                        }
+                    ),
+                    {
+                        target: screen1Wrapper,
+                        offset: ["start end", "end start"],
+                    }
+                );
+            }
+        } else {
+            if (screen1Bg) screen1Bg.style.opacity = "1";
+            if (screen1ElementsLeft) screen1ElementsLeft.style.opacity = "1";
+            if (screen1ElementsRight) screen1ElementsRight.style.opacity = "1";
+            if (screen1Content) screen1Content.style.opacity = "1";
+        }
+    }
+
+    /**
+     * Footer logo animation
+     */
+    const footerLogo = document.querySelector("footer img");
+
+    if (footerLogo) {
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (!prefersReducedMotion) {
+            inView(
+                footerLogo,
+                () => {
+                    animate(
+                        footerLogo,
+                        {
+                            opacity: [0, 1],
+                            y: [18, 0],
+                            scale: [0.92, 1],
+                            filter: ["blur(8px)", "blur(0px)"],
+                        },
+                        {
+                            duration: 0.7,
+                            easing: [0.16, 1, 0.3, 1],
+                        }
+                    );
+                },
+                {
+                    margin: "0px 0px -10% 0px",
+                }
+            );
+        } else {
+            footerLogo.style.opacity = "1";
         }
     }
 

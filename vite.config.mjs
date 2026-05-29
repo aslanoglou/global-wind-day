@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
 
 export default defineConfig({
     root: 'src',
@@ -22,11 +23,14 @@ export default defineConfig({
         outDir: '../dist',
         emptyOutDir: true,
         rollupOptions: {
-            // Removed input: 'index.html', as Vite should auto-detect index.html in the root
+            input: {
+                main: resolve(__dirname, 'src/index.html'),
+                screen1: resolve(__dirname, 'src/screen-1/index.html'),
+            },
             output: {
-                entryFileNames: 'assets/main.js',
-                chunkFileNames: 'assets/main.js',
-                assetFileNames: 'assets/main[extname]',
+                entryFileNames: 'assets/[name].js',
+                chunkFileNames: 'assets/[name].js',
+                assetFileNames: 'assets/[name][extname]',
             },
         },
     },
