@@ -637,60 +637,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const playPercentRandomizer = async (percentElement, finalPercent = 47) => {
-        const randomDuration = 3600;
-        const intervalSpeed = 60;
-
-        const startTime = performance.now();
-
-        const randomize = () => {
-            const elapsed = performance.now() - startTime;
-
-            if (elapsed < randomDuration) {
-                const randomPercent = Math.floor(Math.random() * 101);
-                percentElement.textContent = `${randomPercent}%`;
-
-                setTimeout(randomize, intervalSpeed);
-            } else {
-                percentElement.textContent = `${finalPercent}%`;
-
-                const exitAnimation = animate(
-                    percentElement,
-                    {
-                        x: [0, window.innerWidth],
-                        opacity: [1, 0],
-                        filter: ["blur(0px)", "blur(10px)"],
-                    },
-                    {
-                        duration: 0.55,
-                        easing: [0.7, 0, 0.84, 0],
-                    }
-                );
-
-                exitAnimation.finished.then(() => {
-                    percentElement.textContent = `${finalPercent}%`;
-
-                    animate(
-                        percentElement,
-                        {
-                            x: [-window.innerWidth, 0],
-                            opacity: [0, 1],
-                            scale: [0.9, 1],
-                            filter: ["blur(10px)", "blur(0px)"],
-                        },
-                        {
-                            duration: 0.85,
-                            easing: [0.16, 1, 0.3, 1],
-                        }
-                    );
-                });
-            }
-        };
-
-        randomize();
-    };
-
-
     /**
      * Screen 2 animation
      */
@@ -703,10 +649,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const screen2ElementsRight = screen2.querySelector(".screen__elements-right");
         const screen2Percent = screen2.querySelector(".screen__percent");
         const screen2Subtitle = screen2.querySelector(".screen__percent + div");
-        const screen2SongTitle = screen2Subtitle ? screen2Subtitle.nextElementSibling : null;
-        const screen2Bg = screen2.querySelector(".screen__bg");
-        const screen2BgImage = screen2.querySelector(".screen__bg img");
-        const screen2ArrowLink = screen2.querySelector(".screen__arrow-link");
+        const screen2BgKey = screen2.dataset.bg;
+        const screen2Bg = screen2.querySelector(`.screen__bg[data-bg-name="${screen2BgKey}"]`);
+        const screen2BgImage = screen2Bg ? screen2Bg.querySelector("img") : null;
+        const screen2SongTitles = screen2.querySelectorAll(".h1[data-bg-name]");
+        const screen2SongTitle = screen2.querySelector(`.h1[data-bg-name="${screen2BgKey}"]`);
+
+        if (screen2Bg) {
+            screen2Bg.classList.add("is-active");
+        }
+
+        screen2SongTitles.forEach((title) => {
+            if (title.dataset.bgName === screen2BgKey) {
+                title.classList.add("is-active");
+            }
+        });
 
         const prefersReducedMotion = window.matchMedia(
             "(prefers-reduced-motion: reduce)"
@@ -787,26 +744,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     if (screen2Percent) {
-                        const finalPercent = Number(screen2Percent.dataset.finalPercent || 47);
+                        const finalPercent = Number(screen2Percent.dataset.finalPercent || 46);
 
-                        const percentIntroAnimation = animate(
+                        screen2Percent.textContent = `${finalPercent}%`;
+
+                        animate(
                             screen2Percent,
                             {
                                 opacity: [0, 1],
-                                y: [36, 0],
-                                scale: [0.82, 1],
-                                filter: ["blur(14px)", "blur(0px)"],
+                                y: [48, 0],
+                                scale: [0.7, 1],
+                                filter: ["blur(18px)", "blur(0px)"],
                             },
                             {
-                                duration: 0.85,
+                                duration: 0.95,
                                 delay: 0.48,
                                 easing: [0.16, 1, 0.3, 1],
                             }
                         );
-
-                        percentIntroAnimation.finished.then(() => {
-                            playPercentRandomizer(screen2Percent, finalPercent);
-                        });
                     }
 
                     if (screen2Subtitle) {
@@ -886,7 +841,13 @@ document.addEventListener("DOMContentLoaded", () => {
             if (screen2ElementsLeft) screen2ElementsLeft.style.opacity = "1";
             if (screen2ElementsRight) screen2ElementsRight.style.opacity = "1";
             if (screen2Heading) screen2Heading.style.opacity = "1";
-            if (screen2Percent) screen2Percent.style.opacity = "1";
+
+            if (screen2Percent) {
+                const finalPercent = Number(screen2Percent.dataset.finalPercent || 46);
+                screen2Percent.textContent = `${finalPercent}%`;
+                screen2Percent.style.opacity = "1";
+            }
+
             if (screen2Subtitle) screen2Subtitle.style.opacity = "1";
             if (screen2SongTitle) screen2SongTitle.style.opacity = "1";
             if (screen2ArrowLink) screen2ArrowLink.style.opacity = "1";
@@ -1066,6 +1027,76 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    const playUserCodeRandomizer = (codeElement, finalCode = "3657") => {
+        const randomDuration = 3200;
+        const intervalSpeed = 55;
+        const codeLength = finalCode.length;
+        const startTime = performance.now();
+
+        const getRandomCode = () => {
+            return String(Math.floor(Math.random() * 10 ** codeLength)).padStart(codeLength, "0");
+        };
+
+        const randomize = () => {
+            const elapsed = performance.now() - startTime;
+
+            if (elapsed < randomDuration) {
+                codeElement.textContent = getRandomCode();
+                setTimeout(randomize, intervalSpeed);
+                return;
+            }
+
+            codeElement.textContent = finalCode;
+
+            const exitAnimation = animate(
+                codeElement,
+                {
+                    x: [0, window.innerWidth],
+                    opacity: [1, 0],
+                    filter: ["blur(0px)", "blur(12px)"],
+                },
+                {
+                    duration: 0.55,
+                    easing: [0.7, 0, 0.84, 0],
+                }
+            );
+
+            exitAnimation.finished.then(() => {
+                codeElement.textContent = finalCode;
+
+                const enterAnimation = animate(
+                    codeElement,
+                    {
+                        x: [-window.innerWidth, 0],
+                        opacity: [0, 1],
+                        scale: [0.9, 1],
+                        filter: ["blur(12px)", "blur(0px)"],
+                    },
+                    {
+                        duration: 0.85,
+                        easing: [0.16, 1, 0.3, 1],
+                    }
+                );
+
+                enterAnimation.finished.then(() => {
+                    animate(
+                        codeElement,
+                        {
+                            scale: [1, 1.06, 1],
+                        },
+                        {
+                            duration: 1.4,
+                            repeat: Infinity,
+                            easing: "ease-in-out",
+                        }
+                    );
+                });
+            });
+        };
+
+        randomize();
+    };
+
     /**
      * Screen 4 animation
      */
@@ -1177,6 +1208,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     if (screen4UserCode) {
+                        const finalCode = screen4UserCode.dataset.finalCode || screen4UserCode.textContent.trim() || "3657";
+
+                        screen4UserCode.textContent = "0000";
+
+                        playUserCodeRandomizer(screen4UserCode, finalCode);
+
                         animate(
                             screen4UserCode,
                             {
@@ -1189,19 +1226,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 duration: 0.9,
                                 delay: 0.72,
                                 easing: [0.16, 1, 0.3, 1],
-                            }
-                        );
-
-                        animate(
-                            screen4UserCode,
-                            {
-                                scale: [1, 1.06, 1],
-                            },
-                            {
-                                duration: 1.6,
-                                delay: 1.75,
-                                repeat: 2,
-                                easing: "ease-in-out",
                             }
                         );
                     }
@@ -1235,7 +1259,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (screen4ElementsRight) screen4ElementsRight.style.opacity = "1";
             if (screen4Heading) screen4Heading.style.opacity = "1";
             if (screen4Text) screen4Text.style.opacity = "1";
-            if (screen4UserCode) screen4UserCode.style.opacity = "1";
+            if (screen4UserCode) {
+                const finalCode = screen4UserCode.dataset.finalCode || screen4UserCode.textContent.trim() || "3657";
+                screen4UserCode.textContent = finalCode;
+                screen4UserCode.style.opacity = "1";
+            }
         }
     }
 

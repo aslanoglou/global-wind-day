@@ -26,6 +26,9 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, 'src/index.html'),
                 screen1: resolve(__dirname, 'src/screen-1/index.html'),
+                screen2: resolve(__dirname, 'src/screen-2/index.html'),
+                screen3: resolve(__dirname, 'src/screen-3/index.html'),
+                screen4: resolve(__dirname, 'src/screen-4/index.html'),
             },
             output: {
                 entryFileNames: 'assets/[name].js',

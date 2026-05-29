@@ -280,6 +280,19 @@
             .screen__percent{
                 @apply text-[87px];
             }
+            .screen__bg{
+                @apply invisible;
+                &.is-active{
+                    @apply visible;
+                }
+            }
+            .h1[data-bg-name] {
+                @apply hidden opacity-0 will-change-[transform,opacity,filter];
+            }
+
+            .h1[data-bg-name].is-active {
+                @apply block;
+            }
         }
 
         &.screen--3{
@@ -291,6 +304,9 @@
 
         &.screen--4{
             @apply text-white text-center;
+            .screen__wrapper{
+                @apply flex flex-col items-center justify-center;
+            }
             .screen__user-code{
                 @apply leading-none opacity-0 will-change-[transform,opacity,filter];
             }
