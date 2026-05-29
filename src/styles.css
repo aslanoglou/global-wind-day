@@ -288,6 +288,13 @@
                 @apply flex items-center justify-center opacity-0 will-change-[transform,opacity,filter];
             }
         }
+
+        &.screen--4{
+            @apply text-white text-center;
+            .screen__user-code{
+                @apply leading-none opacity-0 will-change-[transform,opacity,filter];
+            }
+        }
     }
 
     .youtube-modal {

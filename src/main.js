@@ -1067,6 +1067,179 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
+     * Screen 4 animation
+     */
+    const screen4 = document.querySelector(".screen--4");
+
+    if (screen4) {
+        const screen4Wrapper = screen4.querySelector(".screen__wrapper");
+        const screen4Heading = screen4.querySelector(".screen__wrapper > div:first-child");
+        const screen4ElementsLeft = screen4.querySelector(".screen__elements-left");
+        const screen4ElementsRight = screen4.querySelector(".screen__elements-right");
+        const screen4Text = screen4.querySelector(".screen__wrapper > div:nth-of-type(2)");
+        const screen4UserCode = screen4.querySelector(".screen__user-code");
+        const screen4Bg = screen4.querySelector(".screen__bg");
+        const screen4BgImage = screen4.querySelector(".screen__bg img");
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (!prefersReducedMotion) {
+            let screen4Animated = false;
+
+            inView(
+                screen4,
+                () => {
+                    if (screen4Animated) return;
+                    screen4Animated = true;
+
+                    if (screen4Bg) {
+                        animate(
+                            screen4Bg,
+                            {
+                                opacity: [0, 1],
+                                scale: [1.04, 1],
+                                filter: ["blur(18px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.9,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen4ElementsLeft) {
+                        animate(
+                            screen4ElementsLeft,
+                            {
+                                opacity: [0, 1],
+                                x: [-90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.14,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen4ElementsRight) {
+                        animate(
+                            screen4ElementsRight,
+                            {
+                                opacity: [0, 1],
+                                x: [90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.22,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen4Heading) {
+                        animate(
+                            screen4Heading,
+                            {
+                                opacity: [0, 1],
+                                y: [24, 0],
+                                filter: ["blur(10px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.65,
+                                delay: 0.34,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen4Text) {
+                        animate(
+                            screen4Text,
+                            {
+                                opacity: [0, 1],
+                                y: [28, 0],
+                                scale: [0.96, 1],
+                                filter: ["blur(12px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.75,
+                                delay: 0.52,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen4UserCode) {
+                        animate(
+                            screen4UserCode,
+                            {
+                                opacity: [0, 1],
+                                y: [40, 0],
+                                scale: [0.65, 1],
+                                filter: ["blur(18px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.9,
+                                delay: 0.72,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+
+                        animate(
+                            screen4UserCode,
+                            {
+                                scale: [1, 1.06, 1],
+                            },
+                            {
+                                duration: 1.6,
+                                delay: 1.75,
+                                repeat: 2,
+                                easing: "ease-in-out",
+                            }
+                        );
+                    }
+                },
+                {
+                    margin: "0px 0px -20% 0px",
+                }
+            );
+
+            if (screen4Wrapper && screen4BgImage) {
+                scroll(
+                    animate(
+                        screen4BgImage,
+                        {
+                            y: ["-10%", "0%"],
+                            scale: [1, 1],
+                        },
+                        {
+                            easing: "linear",
+                        }
+                    ),
+                    {
+                        target: screen4Wrapper,
+                        offset: ["start end", "end start"],
+                    }
+                );
+            }
+        } else {
+            if (screen4Bg) screen4Bg.style.opacity = "1";
+            if (screen4ElementsLeft) screen4ElementsLeft.style.opacity = "1";
+            if (screen4ElementsRight) screen4ElementsRight.style.opacity = "1";
+            if (screen4Heading) screen4Heading.style.opacity = "1";
+            if (screen4Text) screen4Text.style.opacity = "1";
+            if (screen4UserCode) screen4UserCode.style.opacity = "1";
+        }
+    }
+
+    /**
      * Footer logo animation
      */
     const footerLogo = document.querySelector("footer img");
