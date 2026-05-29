@@ -281,6 +281,13 @@
                 @apply text-[87px];
             }
         }
+
+        &.screen--3{
+            @apply text-white text-center;
+            a[role="button"] {
+                @apply flex items-center justify-center opacity-0 will-change-[transform,opacity,filter];
+            }
+        }
     }
 
     .youtube-modal {

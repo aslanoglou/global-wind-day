@@ -894,6 +894,179 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
+     * Screen 3 animation
+     */
+    const screen3 = document.querySelector(".screen--3");
+
+    if (screen3) {
+        const screen3Wrapper = screen3.querySelector(".screen__wrapper");
+        const screen3Heading = screen3.querySelector(".screen__wrapper > div:first-child");
+        const screen3ElementsLeft = screen3.querySelector(".screen__elements-left");
+        const screen3ElementsRight = screen3.querySelector(".screen__elements-right");
+        const screen3Text = screen3.querySelector(".screen__wrapper > div:nth-of-type(2)");
+        const screen3Button = screen3.querySelector('a[role="button"]');
+        const screen3Bg = screen3.querySelector(".screen__bg");
+        const screen3BgImage = screen3.querySelector(".screen__bg img");
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (!prefersReducedMotion) {
+            let screen3Animated = false;
+
+            inView(
+                screen3,
+                () => {
+                    if (screen3Animated) return;
+                    screen3Animated = true;
+
+                    if (screen3Bg) {
+                        animate(
+                            screen3Bg,
+                            {
+                                opacity: [0, 1],
+                                scale: [1.04, 1],
+                                filter: ["blur(18px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.9,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen3ElementsLeft) {
+                        animate(
+                            screen3ElementsLeft,
+                            {
+                                opacity: [0, 1],
+                                x: [-90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.14,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen3ElementsRight) {
+                        animate(
+                            screen3ElementsRight,
+                            {
+                                opacity: [0, 1],
+                                x: [90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.22,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen3Heading) {
+                        animate(
+                            screen3Heading,
+                            {
+                                opacity: [0, 1],
+                                y: [24, 0],
+                                filter: ["blur(10px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.65,
+                                delay: 0.34,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen3Text) {
+                        animate(
+                            screen3Text,
+                            {
+                                opacity: [0, 1],
+                                y: [28, 0],
+                                scale: [0.96, 1],
+                                filter: ["blur(12px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.75,
+                                delay: 0.5,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen3Button) {
+                        animate(
+                            screen3Button,
+                            {
+                                opacity: [0, 1],
+                                y: [32, 0],
+                                scale: [0.86, 1],
+                                filter: ["blur(12px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.75,
+                                delay: 0.7,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+
+                        animate(
+                            screen3Button,
+                            {
+                                scale: [1, 1.04, 1],
+                            },
+                            {
+                                duration: 1.8,
+                                delay: 1.6,
+                                repeat: Infinity,
+                                easing: "ease-in-out",
+                            }
+                        );
+                    }
+                },
+                {
+                    margin: "0px 0px -20% 0px",
+                }
+            );
+
+            if (screen3Wrapper && screen3BgImage) {
+                scroll(
+                    animate(
+                        screen3BgImage,
+                        {
+                            y: ["-10%", "0%"],
+                            scale: [1, 1],
+                        },
+                        {
+                            easing: "linear",
+                        }
+                    ),
+                    {
+                        target: screen3Wrapper,
+                        offset: ["start end", "end start"],
+                    }
+                );
+            }
+        } else {
+            if (screen3Bg) screen3Bg.style.opacity = "1";
+            if (screen3ElementsLeft) screen3ElementsLeft.style.opacity = "1";
+            if (screen3ElementsRight) screen3ElementsRight.style.opacity = "1";
+            if (screen3Heading) screen3Heading.style.opacity = "1";
+            if (screen3Text) screen3Text.style.opacity = "1";
+            if (screen3Button) screen3Button.style.opacity = "1";
+        }
+    }
+
+    /**
      * Footer logo animation
      */
     const footerLogo = document.querySelector("footer img");
