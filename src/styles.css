@@ -274,6 +274,13 @@
                 @apply flex items-center gap-4 absolute bottom-3 right-4 z-20 text-white hover:text-(--color-lighter-green);
             }
         }
+
+        &.screen--2{
+            @apply text-white text-center;
+            .screen__percent{
+                @apply text-[87px];
+            }
+        }
     }
 
     .youtube-modal {

@@ -637,6 +637,262 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    const playPercentRandomizer = async (percentElement, finalPercent = 47) => {
+        const randomDuration = 3600;
+        const intervalSpeed = 60;
+
+        const startTime = performance.now();
+
+        const randomize = () => {
+            const elapsed = performance.now() - startTime;
+
+            if (elapsed < randomDuration) {
+                const randomPercent = Math.floor(Math.random() * 101);
+                percentElement.textContent = `${randomPercent}%`;
+
+                setTimeout(randomize, intervalSpeed);
+            } else {
+                percentElement.textContent = `${finalPercent}%`;
+
+                const exitAnimation = animate(
+                    percentElement,
+                    {
+                        x: [0, window.innerWidth],
+                        opacity: [1, 0],
+                        filter: ["blur(0px)", "blur(10px)"],
+                    },
+                    {
+                        duration: 0.55,
+                        easing: [0.7, 0, 0.84, 0],
+                    }
+                );
+
+                exitAnimation.finished.then(() => {
+                    percentElement.textContent = `${finalPercent}%`;
+
+                    animate(
+                        percentElement,
+                        {
+                            x: [-window.innerWidth, 0],
+                            opacity: [0, 1],
+                            scale: [0.9, 1],
+                            filter: ["blur(10px)", "blur(0px)"],
+                        },
+                        {
+                            duration: 0.85,
+                            easing: [0.16, 1, 0.3, 1],
+                        }
+                    );
+                });
+            }
+        };
+
+        randomize();
+    };
+
+
+    /**
+     * Screen 2 animation
+     */
+    const screen2 = document.querySelector(".screen--2");
+
+    if (screen2) {
+        const screen2Wrapper = screen2.querySelector(".screen__wrapper");
+        const screen2Heading = screen2.querySelector(".screen__wrapper > div:first-child");
+        const screen2ElementsLeft = screen2.querySelector(".screen__elements-left");
+        const screen2ElementsRight = screen2.querySelector(".screen__elements-right");
+        const screen2Percent = screen2.querySelector(".screen__percent");
+        const screen2Subtitle = screen2.querySelector(".screen__percent + div");
+        const screen2SongTitle = screen2Subtitle ? screen2Subtitle.nextElementSibling : null;
+        const screen2Bg = screen2.querySelector(".screen__bg");
+        const screen2BgImage = screen2.querySelector(".screen__bg img");
+        const screen2ArrowLink = screen2.querySelector(".screen__arrow-link");
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (!prefersReducedMotion) {
+            let screen2Animated = false;
+
+            inView(
+                screen2,
+                () => {
+                    if (screen2Animated) return;
+                    screen2Animated = true;
+
+                    if (screen2Bg) {
+                        animate(
+                            screen2Bg,
+                            {
+                                opacity: [0, 1],
+                                scale: [1.04, 1],
+                                filter: ["blur(18px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.9,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen2ElementsLeft) {
+                        animate(
+                            screen2ElementsLeft,
+                            {
+                                opacity: [0, 1],
+                                x: [-90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.14,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen2ElementsRight) {
+                        animate(
+                            screen2ElementsRight,
+                            {
+                                opacity: [0, 1],
+                                x: [90, 0],
+                                scale: [0.94, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.95,
+                                delay: 0.22,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen2Heading) {
+                        animate(
+                            screen2Heading,
+                            {
+                                opacity: [0, 1],
+                                y: [24, 0],
+                                filter: ["blur(10px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.65,
+                                delay: 0.34,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen2Percent) {
+                        const finalPercent = Number(screen2Percent.dataset.finalPercent || 47);
+
+                        const percentIntroAnimation = animate(
+                            screen2Percent,
+                            {
+                                opacity: [0, 1],
+                                y: [36, 0],
+                                scale: [0.82, 1],
+                                filter: ["blur(14px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.85,
+                                delay: 0.48,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+
+                        percentIntroAnimation.finished.then(() => {
+                            playPercentRandomizer(screen2Percent, finalPercent);
+                        });
+                    }
+
+                    if (screen2Subtitle) {
+                        animate(
+                            screen2Subtitle,
+                            {
+                                opacity: [0, 1],
+                                y: [24, 0],
+                                filter: ["blur(10px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.65,
+                                delay: 0.66,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen2SongTitle) {
+                        animate(
+                            screen2SongTitle,
+                            {
+                                opacity: [0, 1],
+                                y: [28, 0],
+                                scale: [0.96, 1],
+                                filter: ["blur(12px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.75,
+                                delay: 0.78,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+
+                    if (screen2ArrowLink) {
+                        animate(
+                            screen2ArrowLink,
+                            {
+                                opacity: [0, 1],
+                                x: [24, 0],
+                                filter: ["blur(8px)", "blur(0px)"],
+                            },
+                            {
+                                duration: 0.6,
+                                delay: 0.94,
+                                easing: [0.16, 1, 0.3, 1],
+                            }
+                        );
+                    }
+                },
+                {
+                    margin: "0px 0px -20% 0px",
+                }
+            );
+
+            if (screen2Wrapper && screen2BgImage) {
+                scroll(
+                    animate(
+                        screen2BgImage,
+                        {
+                            y: ["-10%", "0%"],
+                            scale: [1, 1],
+                        },
+                        {
+                            easing: "linear",
+                        }
+                    ),
+                    {
+                        target: screen2Wrapper,
+                        offset: ["start end", "end start"],
+                    }
+                );
+            }
+        } else {
+            if (screen2Bg) screen2Bg.style.opacity = "1";
+            if (screen2ElementsLeft) screen2ElementsLeft.style.opacity = "1";
+            if (screen2ElementsRight) screen2ElementsRight.style.opacity = "1";
+            if (screen2Heading) screen2Heading.style.opacity = "1";
+            if (screen2Percent) screen2Percent.style.opacity = "1";
+            if (screen2Subtitle) screen2Subtitle.style.opacity = "1";
+            if (screen2SongTitle) screen2SongTitle.style.opacity = "1";
+            if (screen2ArrowLink) screen2ArrowLink.style.opacity = "1";
+        }
+    }
+
     /**
      * Footer logo animation
      */
