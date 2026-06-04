@@ -111,22 +111,55 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
+            const getHeroAnimationValues = () => {
+                const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+                return {
+                    opacity: [0, 1],
+                    y: isMobile ? [48, 0] : [36, 0],
+                    scale: isMobile ? [0.94, 1.5] : [0.94, 1],
+                    rotate: isMobile ? [-2.5, 0] : [-1.5, 0],
+                    filter: ["blur(14px)", "blur(0px)"],
+                };
+            };
+
+            const heroMobileQuery = window.matchMedia("(max-width: 768px)");
+
+            const getHeroFinalValues = () => {
+                const isMobile = heroMobileQuery.matches;
+
+                return {
+                    opacity: 1,
+                    y: 0,
+                    scale: isMobile ? 1.5 : 1,
+                    rotate: 0,
+                    filter: "blur(0px)",
+                };
+            };
+
             if (heroElements) {
-                animate(
-                    heroElements,
-                    {
-                        opacity: [0, 1],
-                        y: [36, 0],
-                        scale: [0.94, 1],
-                        rotate: [-1.5, 0],
-                        filter: ["blur(14px)", "blur(0px)"],
-                    },
-                    {
-                        duration: 1.05,
-                        delay: 0.76,
-                        easing: [0.16, 1, 0.3, 1],
+                let heroElementsAnimation = animate(heroElements, getHeroAnimationValues(), {
+                    duration: 1.05,
+                    delay: 0.76,
+                    easing: [0.16, 1, 0.3, 1],
+                });
+
+                const updateHeroElementsOnResize = () => {
+                    if (heroElementsAnimation) {
+                        heroElementsAnimation.cancel();
                     }
-                );
+
+                    heroElementsAnimation = animate(heroElements, getHeroFinalValues(), {
+                        duration: 0.35,
+                        easing: [0.16, 1, 0.3, 1],
+                    });
+                };
+
+                if (heroMobileQuery.addEventListener) {
+                    heroMobileQuery.addEventListener("change", updateHeroElementsOnResize);
+                } else {
+                    heroMobileQuery.addListener(updateHeroElementsOnResize);
+                }
             }
         } else {
             if (heroBg) heroBg.style.opacity = "1";
@@ -654,6 +687,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const screen2BgImage = screen2Bg ? screen2Bg.querySelector("img") : null;
         const screen2SongTitles = screen2.querySelectorAll(".h1[data-bg-name]");
         const screen2SongTitle = screen2.querySelector(`.h1[data-bg-name="${screen2BgKey}"]`);
+        const screen2ArrowLink = screen2.querySelector(".screen__arrow-link");
 
         if (screen2Bg) {
             screen2Bg.classList.add("is-active");
