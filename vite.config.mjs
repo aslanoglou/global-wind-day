@@ -24,7 +24,7 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'src/index.html'),
+                home: resolve(__dirname, 'src/index.html'),
                 screen1: resolve(__dirname, 'src/screen-1/index.html'),
                 screen2: resolve(__dirname, 'src/screen-2/index.html'),
                 screen3: resolve(__dirname, 'src/screen-3/index.html'),
