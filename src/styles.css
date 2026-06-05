@@ -365,7 +365,8 @@
         @apply grid place-items-center py-(--footer-vertical-padding) h-(--footer-height) w-full px-4;
 
         img {
-            @apply h-(--footer-logo-height) w-auto opacity-0 will-change-[transform,opacity,filter];
+            /*@apply h-(--footer-logo-height) w-auto opacity-0 will-change-[transform,opacity,filter];*/
+            @apply h-(--footer-logo-height) w-auto ;
         }
     }
 }

@@ -1301,42 +1301,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /**
-     * Footer logo animation
-     */
-    const footerLogo = document.querySelector("footer img");
-
-    if (footerLogo) {
-        const prefersReducedMotion = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-        if (!prefersReducedMotion) {
-            inView(
-                footerLogo,
-                () => {
-                    animate(
-                        footerLogo,
-                        {
-                            opacity: [0, 1],
-                            y: [18, 0],
-                            scale: [0.92, 1],
-                            filter: ["blur(8px)", "blur(0px)"],
-                        },
-                        {
-                            duration: 0.7,
-                            easing: [0.16, 1, 0.3, 1],
-                        }
-                    );
-                },
-                {
-                    margin: "0px 0px -10% 0px",
-                }
-            );
-        } else {
-            footerLogo.style.opacity = "1";
-        }
-    }
+    // /**
+    //  * Footer logo animation
+    //  */
+    // const footerLogo = document.querySelector("footer img");
+    //
+    // if (footerLogo) {
+    //     const prefersReducedMotion = window.matchMedia(
+    //         "(prefers-reduced-motion: reduce)"
+    //     ).matches;
+    //
+    //     if (!prefersReducedMotion) {
+    //         inView(
+    //             footerLogo,
+    //             () => {
+    //                 animate(
+    //                     footerLogo,
+    //                     {
+    //                         opacity: [0, 1],
+    //                         y: [18, 0],
+    //                         scale: [0.92, 1],
+    //                         filter: ["blur(8px)", "blur(0px)"],
+    //                     },
+    //                     {
+    //                         duration: 0.7,
+    //                         easing: [0.16, 1, 0.3, 1],
+    //                     }
+    //                 );
+    //             },
+    //             {
+    //                 margin: "0px 0px -10% 0px",
+    //             }
+    //         );
+    //     } else {
+    //         footerLogo.style.opacity = "1";
+    //     }
+    // }
 
     /**
      * YouTube modal
